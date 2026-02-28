@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep Sea Treasure - Underwater Adventure</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <canvas id="gameCanvas" width="1280" height="720"></canvas>
+        
+        <!-- UI Elements -->
+        <div class="ui-panel">
+            <div class="treasure-counter">
+                <span>💎 Treasures:</span>
+                <span id="treasuresCollected">0</span>/<span id="totalTreasures">8</span>
+            </div>
+            
+            <div class="oxygen-meter">
+                <div class="oxygen-label">🫧 Oxygen</div>
+                <div class="oxygen-bar-container">
+                    <div id="oxygenBar" class="oxygen-bar"></div>
+                </div>
+            </div>
+            
+            <div class="timer-display">
+                <span>⏱️ Time:</span>
+                <span id="timerValue">0:00</span>
+            </div>
+        </div>
+
+        <div id="messageDisplay" class="message-display"></div>
+
+        <!-- Start Screen -->
+        <div id="startScreen" class="screen">
+            <h1>Deep Sea Treasure</h1>
+            <p>Dive into the depths and collect 8 treasures before your oxygen runs out!</p>
+            <p>⚠️ Avoid the dangerous jellyfish and predatory fish!</p>
+            <p class="controls">Use WASD or Arrow Keys to move</p>
+            <button onclick="window.startGame()">Begin Dive</button>
+        </div>
+
+        <!-- Win Screen -->
+        <div id="winScreen" class="screen hidden">
+            <h2>🎉 YOU WIN! 🎉</h2>
+            <p>You collected all treasures and returned safely!</p>
+            <p>Time: <span id="finalTime">0:00</span></p>
+            <p>Treasures: 8/8</p>
+            <button onclick="window.restartGame()">Dive Again</button>
+        </div>
+
+        <!-- Game Over Screen -->
+        <div id="gameOverScreen" class="screen hidden">
+            <h2>💀 GAME OVER 💀</h2>
+            <p>You were attacked by a sea creature...</p>
+            <p>Treasures collected: <span id="deathTreasures">0</span>/8</p>
+            <p>Time survived: <span id="survivalTime">0:00</span></p>
+            <button onclick="window.restartGame()">Try Again</button>
+        </div>
+
+        <!-- Oxygen Low Screen -->
+        <div id="oxygenLowScreen" class="screen hidden">
+            <h2>🫧 OXYGEN DEPLETED 🫧</h2>
+            <p>You ran out of air...</p>
+            <p>Treasures collected: <span id="oxygenTreasures">0</span>/8</p>
+            <button onclick="window.restartGame()">Try Again</button>
+        </div>
+    </div>
+
+    <!-- Audio elements (simulated with JavaScript) -->
+    <script src="game.js"></script>
+</body>
+</html>
